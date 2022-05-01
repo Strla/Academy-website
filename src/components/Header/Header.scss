@@ -1,3 +1,5 @@
+@use "../../theme";
+
 .Header {
   position: absolute;
   top: 0;
@@ -8,7 +10,7 @@
 
   &.Header-Secondary {
     position: initial;
-    background-color: #333333;
+    background-color: theme.$colorTextPrimary;
   }
 
   &-Inner {
@@ -16,13 +18,13 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (min-width: 1024px) {
+    @media (theme.$desktop) {
       width: 960px;
       margin: 0 auto;
       padding: 32px 0;
     }
 
-    @media (min-width: 1300px) {
+    @media (theme.$desktopLarge) {
       width: 1260px;
     }
   }
@@ -36,10 +38,10 @@
     height: auto;
 
     path {
-      fill: #ffffff;
+      fill: theme.$colorSecondary;
     }
 
-    @media (min-width: 1024px) {
+    @media (theme.$desktop) {
       display: none;
     }
   }
@@ -47,20 +49,20 @@
   &-Nav {
     display: none;
 
-    @media (min-width: 1024px) {
+    @media (theme.$desktop) {
       display: block;
     }
   }
 
   &-NavLink {
-    color: #ffffff;
+    color: theme.$colorSecondary;
     letter-spacing: 1px;
     margin-right: 48px;
     transition: text-shadow 0.3s ease-out;
   }
 
   &-NavLink:hover {
-    text-shadow: 0.7px 0 0 #ffffff;
+    text-shadow: 0.7px 0 0 theme.$colorSecondary;
   }
 
   &-NavButton {
