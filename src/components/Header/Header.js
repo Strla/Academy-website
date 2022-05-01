@@ -2,9 +2,16 @@ import "./Header.scss";
 import LogoImg from "../../assets/images/logo.svg";
 import Button from "../Button/Button";
 
-const Header = () => {
+const Header = ({ modifiers }) => {
+  const modifierClasses = {
+    secondary: "Header-Secondary",
+  };
+
+  let headerClass = "Header";
+
+  modifiers.map((modifier) => (headerClass += " " + modifierClasses[modifier]));
   return (
-    <header className="Header">
+    <header className={headerClass}>
       <div className="Header-Inner">
         <a href="/" className="Header-LogoLink">
           <img src={LogoImg} alt="Academy logo" className="Header-Logo" />

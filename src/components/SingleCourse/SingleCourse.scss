@@ -1,0 +1,48 @@
+@use "../../theme";
+
+.SingleCourse {
+  &-Figure {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 32px;
+
+    @media (theme.$tablet) {
+      width: 350px;
+      height: 350px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    @media (theme.$desktopLarge) {
+      width: 450px;
+      height: 450px;
+    }
+  }
+
+  &-Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-Text {
+    font-size: 16px;
+    line-height: 180%;
+    color: theme.$colorTextPrimary;
+
+    @media (theme.$tablet) {
+      padding-left: 48px;
+    }
+
+    @media (theme.$desktopLarge) {
+      padding-left: 64px;
+    }
+  }
+
+  @media (theme.$tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
