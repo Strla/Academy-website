@@ -5,11 +5,11 @@ import courseImg from "../../assets/images/lecture-3.jpg";
 
 const SingleCourse = () => {
   return (
-    <div class="SingleCourse">
-      <figure class="SingleCourse-Figure">
-        <img src={courseImg} alt="Lecture 3" class="SingleCourse-Image" />
+    <div className="SingleCourse">
+      <figure className="SingleCourse-Figure">
+        <img src={courseImg} alt="Lecture 3" className="SingleCourse-Image" />
       </figure>
-      <p class="SingleCourse-Text">
+      <p className="SingleCourse-Text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
         condimentum bibendum velit, nec ultricies ante aliquam nec. Pellentesque
         elit massa, rutrum ac dapibus non, pharetra eget dolor. Aliquam erat

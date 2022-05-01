@@ -23,7 +23,7 @@
     height: 100%;
     width: 27%;
     left: 0;
-    background-color: theme.$colorPrimary;
+    background-color: theme.$colorOverlayPrimary;
   }
 
   &-OverlaySecondary {
@@ -31,7 +31,7 @@
     height: 100%;
     right: 0;
     width: 73%;
-    background-color: #000000ad;
+    background-color: theme.$colorOverlaySecondary;
   }
 
   &-Content {

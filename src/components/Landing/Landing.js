@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import "./Landing.scss";
 import LandingImg from "../../assets/images/landing.jpg";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -19,7 +20,9 @@ const Landing = () => {
             Make a turnaround in your career or upgrade your current skill set
             with knowledge-based lessons from IT practice
           </p>
-          <Button modifiers={["landing"]}>Explore Courses</Button>
+          <Link to="/courses">
+            <Button modifiers={["landing"]}>Explore Courses</Button>
+          </Link>
         </div>
       </div>
     </div>

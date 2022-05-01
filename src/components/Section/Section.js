@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Section.scss";
 
 const Section = ({
@@ -22,6 +23,8 @@ const Section = ({
     });
   }
 
+  const navigate = useNavigate();
+
   return (
     <section className={sectionClass}>
       <div className="Section-Inner">
@@ -29,8 +32,18 @@ const Section = ({
         {isHeadingVisible && (
           <div className="Section-Heading">
             {title && <h2 className="Section-Title">{title}</h2>}
-            {buttonText && (
-              <Button modifiers={["heading", "outline"]}>{buttonText}</Button>
+            {buttonText === "More Courses" && (
+              <Link to="/courses">
+                <Button modifiers={["heading", "outline"]}>{buttonText}</Button>
+              </Link>
+            )}
+            {buttonText === "Back" && (
+              <Button
+                modifiers={["heading", "outline"]}
+                onClick={() => navigate(-1)}
+              >
+                {buttonText}
+              </Button>
             )}
           </div>
         )}

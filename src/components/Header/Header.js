@@ -1,6 +1,7 @@
 import "./Header.scss";
 import LogoImg from "../../assets/images/logo.svg";
 import Button from "../Button/Button";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ modifiers }) => {
   const modifierClasses = {
@@ -13,9 +14,10 @@ const Header = ({ modifiers }) => {
   return (
     <header className={headerClass}>
       <div className="Header-Inner">
-        <a href="/" className="Header-LogoLink">
+        <NavLink to="/" className="Header-LogoLink">
           <img src={LogoImg} alt="Academy logo" className="Header-Logo" />
-        </a>
+        </NavLink>
+
         <svg
           className="Header-Hamburger"
           width="448"
@@ -30,9 +32,18 @@ const Header = ({ modifiers }) => {
           />
         </svg>
         <nav className="Header-Nav">
-          <a href="#" className="Header-NavLink">
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                paddingBottom: isActive ? "3px" : "",
+                borderBottom: isActive ? "2px solid white" : "",
+              };
+            }}
+            to="/courses"
+            className="Header-NavLink"
+          >
             Courses
-          </a>
+          </NavLink>
           <div className="Header-NavButton">
             <Button modifiers={["nav"]}>Sign in</Button>
           </div>
