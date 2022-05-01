@@ -18,7 +18,7 @@ const Section = ({
 
   if (modifiers) {
     modifiers.map((modifier) => {
-      sectionClass += " " + modifierClasses[modifier];
+      return (sectionClass += " " + modifierClasses[modifier]);
     });
   }
 
