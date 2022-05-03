@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./CourseCard.scss";
+import { CourseLink, Figure, Image, Subtitle, Title } from "./CourseCardStyle";
 
-const CourseCard = ({ imgSrc, imgAlt, title, subtitle }) => {
+const CourseCard = ({ courseId, imgSrc, imgAlt, title, subtitle }) => {
   return (
-    <Link to="/course" className="Course">
-      <figure className="Course-Figure">
-        <img src={imgSrc} alt={imgAlt} className="Course-Img" />
-      </figure>
-      <h3 className="Course-Title">{title}</h3>
-      <p className="Course-Subtitle">{subtitle}</p>
-    </Link>
+    <CourseLink to={`/course/${courseId}`}>
+      <Figure>
+        <Image src={imgSrc} alt={imgAlt} />
+      </Figure>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+    </CourseLink>
   );
 };
 

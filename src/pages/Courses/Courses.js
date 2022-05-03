@@ -2,8 +2,8 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
-import Grid from "../../components/Grid/Grid";
 import CourseCard from "../../components/CourseCard/CourseCard";
+import { Grid } from "../../lib/style/generalStyles";
 
 import LectureImg1 from "../../assets/images/lecture-1.jpg";
 import LectureImg2 from "../../assets/images/lecture-2.jpg";
@@ -17,7 +17,7 @@ import LectureImg8 from "../../assets/images/lecture-8.jpg";
 const Courses = () => {
   return (
     <>
-      <Header modifiers={["secondary"]} />
+      <Header isSecondary={true} />
       <Main>
         <Section title={"All lectures"}>
           <Grid>

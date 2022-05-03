@@ -1,21 +1,22 @@
-@use "../../theme";
+import styled from "styled-components";
+import { breakpoints } from "./theme";
 
-.Grid {
+export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 48px;
 
-  @media (theme.$tabletSmall) {
+  @media (${breakpoints.tabletSmall}) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
   }
 
-  @media (theme.$desktop) {
+  @media (${breakpoints.desktop}) {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 48px;
   }
 
-  @media (theme.$desktopLarge) {
+  @media (${breakpoints.desktopLarge}) {
     grid-template-columns: repeat(4, 1fr);
   }
-}
+`;
