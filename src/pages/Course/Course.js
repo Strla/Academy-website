@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
-import Main from "../../components/Main/Main";
+import { Main } from "../../lib/style/generalStyles";
 import Section from "../../components/Section/Section";
 import SingleCourse from "../../components/SingleCourse/SingleCourse";
 import coursesMock from "../../lib/mock/courses";
@@ -29,6 +29,7 @@ const Course = () => {
             actionText={course.subtitle}
             title={course.title}
             buttonText={"Back"}
+            isMainSection={true}
           >
             <SingleCourse
               imgSrc={course.imgSrc}

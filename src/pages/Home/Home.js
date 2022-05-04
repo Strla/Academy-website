@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Landing from "../../components/Landing/Landing";
-import Main from "../../components/Main/Main";
+import { Main } from "../../lib/style/generalStyles";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import { Grid } from "../../lib/style/generalStyles";
@@ -28,6 +28,7 @@ const Home = () => {
           actionText={"Learn something new"}
           title={"Open your new possibilites"}
           buttonText={"More Courses"}
+          linkTo={"courses"}
         >
           {courses && (
             <Grid>
@@ -47,7 +48,7 @@ const Home = () => {
             </Grid>
           )}
         </Section>
-        <Section modifiers={["testimonials"]} isHeadingVisible={false}>
+        <Section isTestimonial={true} isHeadingVisible={false}>
           <Testimonial />
         </Section>
       </Main>

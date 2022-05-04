@@ -11,6 +11,10 @@ export const Header = styled.header`
   padding: 24px;
   z-index: 2;
 
+  @media (${breakpoints.desktop}) {
+    padding: 32px 0;
+  }
+
   ${(props) =>
     props.isSecondary &&
     `
@@ -38,6 +42,8 @@ export const HeaderInner = styled.div`
   }
 `;
 
+export const LogoLink = styled(Link)``;
+
 export const LogoImg = styled.img`
   width: 140px;
 `;
@@ -55,8 +61,6 @@ export const Hamburger = styled(HamburgerIcon)`
   }
 `;
 
-export const LogoLink = styled(Link)``;
-
 export const Nav = styled.nav`
   display: none;
 
@@ -66,17 +70,36 @@ export const Nav = styled.nav`
 `;
 
 export const HeaderNavLink = styled(NavLink)`
+  position: relative;
   color: ${colors.secondary};
   letter-spacing: 1px;
   margin-right: 48px;
   transition: text-shadow 0.3s ease-out;
 
+  &::after {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    border-radius: 8px;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: ${colors.secondary};
+    transition: opacity 0.3s ease-out;
+  }
+
   :hover {
-    text-shadow: 0.7px 0 0 ${colors.secondary};
+    &::after {
+      opacity: 1;
+    }
   }
 
   &.active {
-    padding-bottom: 3px;
+    &::after {
+      opacity: 0;
+    }
+    padding-bottom: 4px;
     border-bottom: 2px solid white;
   }
 `;

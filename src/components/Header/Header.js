@@ -1,6 +1,5 @@
-import "./Header.scss";
 import LogoImage from "../../assets/images/logo.svg";
-import Button from "../Button/Button";
+import { Button } from "../../lib/style/generalStyles";
 import {
   Header as HeaderWrapper,
   HeaderInner,
@@ -25,10 +24,12 @@ const Header = ({ isSecondary }) => {
         <Nav>
           <HeaderNavLink to="/courses">Courses</HeaderNavLink>
           <ButtonLink to="/">
-            <Button modifiers={["nav"]}>Sign in</Button>
+            <Button isNav={true}>Sign in</Button>
           </ButtonLink>
           <ButtonLink to="/">
-            <Button modifiers={["nav", "secondary"]}>Register</Button>
+            <Button isSecondary={true} isNav={true}>
+              Register
+            </Button>
           </ButtonLink>
         </Nav>
       </HeaderInner>

@@ -1,55 +1,53 @@
 import React from "react";
-import Button from "../Button/Button";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import "./Section.scss";
+import { Button } from "../../lib/style/generalStyles";
+import { useNavigate } from "react-router-dom";
+import {
+  ActionText,
+  SectionHeading,
+  SectionInner,
+  SectionLink,
+  SectionTitle,
+  Section as SectionWrapper,
+} from "./SectionStyle";
 
 const Section = ({
-  modifiers,
   actionText,
   title,
   buttonText,
   isHeadingVisible = true,
   children,
+  isTestimonial,
 }) => {
-  const modifierClasses = {
-    testimonials: "Section-Testimonials",
-  };
-
-  let sectionClass = "Section";
-
-  if (modifiers) {
-    modifiers.map((modifier) => {
-      return (sectionClass += " " + modifierClasses[modifier]);
-    });
-  }
-
   const navigate = useNavigate();
 
   return (
-    <section className={sectionClass}>
-      <div className="Section-Inner">
-        {actionText && <span className="Section-ActionText">{actionText}</span>}
+    <SectionWrapper isTestimonial={isTestimonial}>
+      <SectionInner>
+        {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
-          <div className="Section-Heading">
-            {title && <h2 className="Section-Title">{title}</h2>}
+          <SectionHeading>
+            {title && <SectionTitle>{title}</SectionTitle>}
             {buttonText === "More Courses" && (
-              <Link to="/courses">
-                <Button modifiers={["heading", "outline"]}>{buttonText}</Button>
-              </Link>
+              <SectionLink to="/courses">
+                <Button isHeading={true} isOutline={true}>
+                  {buttonText}
+                </Button>
+              </SectionLink>
             )}
             {buttonText === "Back" && (
               <Button
-                modifiers={["heading", "outline"]}
+                isHeading={true}
+                isOutline={true}
                 onClick={() => navigate(-1)}
               >
                 {buttonText}
               </Button>
             )}
-          </div>
+          </SectionHeading>
         )}
         {children}
-      </div>
-    </section>
+      </SectionInner>
+    </SectionWrapper>
   );
 };
 
