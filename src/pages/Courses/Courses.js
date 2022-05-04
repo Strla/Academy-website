@@ -5,6 +5,7 @@ import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 
 import coursesMock from "../../lib/mock/courses";
+import Loader from "../../components/Loader/Loader";
 
 const Courses = () => {
   const [courses, setCourses] = useState(null);
@@ -19,7 +20,7 @@ const Courses = () => {
       <Header isSecondary={true} />
       <Main>
         <Section title={"All lectures"}>
-          {courses && (
+          {courses ? (
             <Grid>
               {courses.map((course) => {
                 return (
@@ -34,6 +35,8 @@ const Courses = () => {
                 );
               })}
             </Grid>
+          ) : (
+            <Loader />
           )}
         </Section>
       </Main>

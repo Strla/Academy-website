@@ -8,6 +8,7 @@ import { Grid } from "../../lib/style/generalStyles";
 import Testimonial from "../../components/Testimonial/Testimonial";
 
 import coursesMock from "../../lib/mock/courses";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);
@@ -30,7 +31,7 @@ const Home = () => {
           buttonText={"More Courses"}
           linkTo={"courses"}
         >
-          {courses && (
+          {courses ? (
             <Grid>
               {courses.map(
                 (course, index) =>
@@ -46,6 +47,8 @@ const Home = () => {
                   )
               )}
             </Grid>
+          ) : (
+            <Loader />
           )}
         </Section>
         <Section isTestimonial={true} isHeadingVisible={false}>
