@@ -14,6 +14,7 @@ export const SideNavList = styled.ul`
   height: 100vh;
   width: 200px;
   padding-top: 3.5rem;
+  z-index: 1;
 
   ${(props) =>
     props.isSecondary &&
