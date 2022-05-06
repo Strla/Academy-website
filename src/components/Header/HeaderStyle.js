@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 import { breakpoints, colors } from "../../lib/style/theme";
-import { ReactComponent as HamburgerIcon } from "../../assets/images/icon-hamburger.svg";
 
 export const Header = styled.header`
   position: absolute;
@@ -21,10 +20,6 @@ export const Header = styled.header`
       position: initial;
       background-color: ${colors.textPrimary};
   `}
-
-  @media (${breakpoints.desktop}) {
-    padding: 32px 0;
-  }
 `;
 
 export const HeaderInner = styled.div`
@@ -46,19 +41,6 @@ export const LogoLink = styled(Link)``;
 
 export const LogoImg = styled.img`
   width: 140px;
-`;
-
-export const Hamburger = styled(HamburgerIcon)`
-  width: 30px;
-  height: auto;
-
-  path {
-    fill: ${colors.secondary};
-  }
-
-  @media (${breakpoints.desktop}) {
-    display: none;
-  }
 `;
 
 export const Nav = styled.nav`

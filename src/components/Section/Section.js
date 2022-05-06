@@ -9,6 +9,7 @@ import {
   SectionTitle,
   Section as SectionWrapper,
 } from "./SectionStyle";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Section = ({
   actionText,
@@ -27,6 +28,7 @@ const Section = ({
         {isHeadingVisible && (
           <SectionHeading>
             {title && <SectionTitle>{title}</SectionTitle>}
+            <SearchBar placeholder="Unesi nesto" />
             {buttonText === "More Courses" && (
               <SectionLink to="/courses">
                 <Button isHeading={true} isOutline={true}>

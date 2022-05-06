@@ -1,6 +1,5 @@
 import { TailSpin } from "react-loader-spinner";
 import styled from "styled-components";
-import { colors } from "../../lib/style/theme";
 
 export const LoaderWrapper = styled.div`
   display: flex;

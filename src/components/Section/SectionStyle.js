@@ -40,7 +40,7 @@ export const SectionHeading = styled.div`
   @media (${breakpoints.tablet}) {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
   }
 `;
 
