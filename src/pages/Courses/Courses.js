@@ -9,17 +9,19 @@ import Loader from "../../components/Loader/Loader";
 
 const Courses = () => {
   const [courses, setCourses] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setCourses(coursesMock);
+      setIsLoaded(true);
     }, 1000);
   }, []);
   return (
     <>
       <Header isSecondary={true} />
       <Main>
-        <Section title={"All lectures"}>
+        <Section title={"All lectures"} search={true} loading={isLoaded}>
           {courses ? (
             <Grid>
               {courses.map((course) => {

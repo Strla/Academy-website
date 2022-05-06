@@ -4,7 +4,7 @@ import { SearchBarInput, SearchBarWrapper } from "./SearchBarStyle";
 const SearchBar = ({ placeholder, isDisabled, callback }) => {
   return (
     <SearchBarWrapper>
-      <SearchBarInput placeholder={placeholder} />
+      <SearchBarInput placeholder={placeholder} disabled={!isDisabled} />
     </SearchBarWrapper>
   );
 };

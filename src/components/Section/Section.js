@@ -18,6 +18,8 @@ const Section = ({
   isHeadingVisible = true,
   children,
   isTestimonial,
+  search,
+  loading,
 }) => {
   const navigate = useNavigate();
 
@@ -28,7 +30,9 @@ const Section = ({
         {isHeadingVisible && (
           <SectionHeading>
             {title && <SectionTitle>{title}</SectionTitle>}
-            <SearchBar placeholder="Unesi nesto" />
+            {search && (
+              <SearchBar placeholder="Search courses" isDisabled={loading} />
+            )}
             {buttonText === "More Courses" && (
               <SectionLink to="/courses">
                 <Button isHeading={true} isOutline={true}>

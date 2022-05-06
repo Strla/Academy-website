@@ -1,28 +1,30 @@
 import styled from "styled-components";
-import { breakpoints } from "../../lib/style/theme";
+import { breakpoints, colors } from "../../lib/style/theme";
 
 export const SearchBarWrapper = styled.div`
-  margin-bottom: 40px;
-  width: 400px;
-  display: inline-flex;
+  width: 100%;
+  display: flex;
+
+  @media (${breakpoints.tabletMedium}) {
+    max-width: 400px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const SearchBarInput = styled.input`
+  padding: 0px 15px;
+  margin-bottom: 40px;
   width: 100%;
-  position: relative;
-  border: 2px solid lightgrey;
+  border: 1px solid ${colors.textSecondary};
   border-radius: 6px;
   line-height: 40px;
   outline: none;
   font-size: 14px;
-  z-index: -1;
 
   &:focus {
-    border-color: yellow;
-  }
-
-  @media (min-width: 576px) {
-    padding: 0;
+    border-color: ${colors.textPrimary};
   }
 
   @media (${breakpoints.desktop}) {
