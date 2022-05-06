@@ -1,10 +1,14 @@
 import React from "react";
 import { SearchBarInput, SearchBarWrapper } from "./SearchBarStyle";
 
-const SearchBar = ({ placeholder, isDisabled, callback }) => {
+const SearchBar = ({ placeholder, isDisabled, onValueChange }) => {
   return (
     <SearchBarWrapper>
-      <SearchBarInput placeholder={placeholder} disabled={!isDisabled} />
+      <SearchBarInput
+        placeholder={placeholder}
+        disabled={!isDisabled}
+        onChange={onValueChange}
+      />
     </SearchBarWrapper>
   );
 };

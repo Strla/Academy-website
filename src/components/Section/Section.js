@@ -20,6 +20,7 @@ const Section = ({
   isTestimonial,
   search,
   loading,
+  onValueChange,
 }) => {
   const navigate = useNavigate();
 
@@ -31,7 +32,11 @@ const Section = ({
           <SectionHeading>
             {title && <SectionTitle>{title}</SectionTitle>}
             {search && (
-              <SearchBar placeholder="Search courses" isDisabled={loading} />
+              <SearchBar
+                placeholder="Search courses"
+                isDisabled={loading}
+                onValueChange={onValueChange}
+              />
             )}
             {buttonText === "More Courses" && (
               <SectionLink to="/courses">

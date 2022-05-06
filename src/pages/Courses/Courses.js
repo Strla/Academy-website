@@ -8,8 +8,9 @@ import coursesMock from "../../lib/mock/courses";
 import Loader from "../../components/Loader/Loader";
 
 const Courses = () => {
-  const [courses, setCourses] = useState(null);
+  const [courses, setCourses] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [inputText, setInputText] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,14 +18,33 @@ const Courses = () => {
       setIsLoaded(true);
     }, 1000);
   }, []);
+
+  const filteredCourses = courses.filter((course) => {
+    if (inputText === "") {
+      return course;
+    } else {
+      return course.title.toLowerCase().includes(inputText);
+    }
+  });
+
+  const handleSearch = (e) => {
+    let lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
   return (
     <>
       <Header isSecondary={true} />
       <Main>
-        <Section title={"All lectures"} search={true} loading={isLoaded}>
-          {courses ? (
+        <Section
+          title={"All lectures"}
+          search={true}
+          loading={isLoaded}
+          onValueChange={handleSearch}
+        >
+          {courses.length > 0 ? (
             <Grid>
-              {courses.map((course) => {
+              {filteredCourses.map((course) => {
                 return (
                   <CourseCard
                     key={course.id}
