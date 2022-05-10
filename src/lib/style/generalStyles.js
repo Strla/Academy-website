@@ -87,12 +87,6 @@ export const Main = styled.main``;
 export const Form = styled(FormFormik)`
   @media (${breakpoints.tabletSmall}) {
     width: 400px;
-
-    ${(props) =>
-      props.isCentered &&
-      `
-       margin: 0 auto;
-  `}
   }
 `;
 
@@ -142,6 +136,13 @@ export const ErrorMessage = styled(ErrorMessageFormik)`
   font-size: 14px;
   color: ${colors.primary};
   padding-top: 8px;
+`;
+
+export const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const PasswordFormWrapper = styled.div`

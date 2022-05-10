@@ -7,6 +7,7 @@ import {
   Field,
   Form,
   FormRow,
+  FormWrapper,
   Main,
   Option,
   Select,
@@ -82,98 +83,100 @@ const Register = () => {
             }}
           >
             {(formik) => (
-              <Form isCentered>
-                <FormRow>
-                  <Field
-                    type="text"
-                    name="firstName"
-                    placeholder="Enter first name"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="firstName" />
-                </FormRow>
-                <FormRow>
-                  <Field
-                    type="text"
-                    name="lastName"
-                    placeholder="Enter last name"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="lastName" />
-                </FormRow>
-                <FormRow>
-                  <Field
-                    type="email"
-                    name="email"
-                    placeholder="Enter email"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="email" />
-                </FormRow>
-                <FormRow>
-                  <Field
-                    type="password"
-                    name="password"
-                    placeholder="Enter password"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="password" />
-                </FormRow>
-                <FormRow>
-                  <Field
-                    type="password"
-                    name="passwordConfirmed"
-                    placeholder="Confirm password"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="passwordConfirmed" />
-                </FormRow>
-                <FormRow>
-                  <Field
-                    type="text"
-                    name="githubUserName"
-                    placeholder="Enter Github username"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="githubUserName" />
-                </FormRow>
-                <FormRow>
-                  <Field
-                    type="text"
-                    name="zeplinUserName"
-                    placeholder="Enter Zeplin username"
-                    disabled={formik.isSubmitting}
-                  />
-                  <ErrorMessage component={"div"} name="zeplinUserName" />
-                </FormRow>
-                <FormRow>
-                  <Select
-                    id="activeFacultyYear"
-                    {...formik.getFieldProps("activeFacultyYear")}
-                  >
-                    <Option value="" disabled hidden>
-                      Choose an Active faculty year
-                    </Option>
-                    <Option value="0">Not a student</Option>
-                    <Option value="1">1st faculty year</Option>
-                    <Option value="2">2nd faculty year</Option>
-                    <Option value="3">3rd faculty year</Option>
-                    <Option value="4">4th faculty year</Option>
-                    <Option value="5">5th faculty year</Option>
-                  </Select>
-                  <ErrorMessage component={"div"} name="activeFacultyYear" />
-                </FormRow>
-                <FormRow>
-                  <Button
-                    type="submit"
-                    isOutline
-                    isForm
-                    disabled={formik.isSubmitting}
-                  >
-                    {formik.isSubmitting ? "Processing..." : "Register"}
-                  </Button>
-                </FormRow>
-              </Form>
+              <FormWrapper>
+                <Form>
+                  <FormRow>
+                    <Field
+                      type="text"
+                      name="firstName"
+                      placeholder="Enter first name"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="firstName" />
+                  </FormRow>
+                  <FormRow>
+                    <Field
+                      type="text"
+                      name="lastName"
+                      placeholder="Enter last name"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="lastName" />
+                  </FormRow>
+                  <FormRow>
+                    <Field
+                      type="email"
+                      name="email"
+                      placeholder="Enter email"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="email" />
+                  </FormRow>
+                  <FormRow>
+                    <Field
+                      type="password"
+                      name="password"
+                      placeholder="Enter password"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="password" />
+                  </FormRow>
+                  <FormRow>
+                    <Field
+                      type="password"
+                      name="passwordConfirmed"
+                      placeholder="Confirm password"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="passwordConfirmed" />
+                  </FormRow>
+                  <FormRow>
+                    <Field
+                      type="text"
+                      name="githubUserName"
+                      placeholder="Enter Github username"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="githubUserName" />
+                  </FormRow>
+                  <FormRow>
+                    <Field
+                      type="text"
+                      name="zeplinUserName"
+                      placeholder="Enter Zeplin username"
+                      disabled={formik.isSubmitting}
+                    />
+                    <ErrorMessage component={"div"} name="zeplinUserName" />
+                  </FormRow>
+                  <FormRow>
+                    <Select
+                      id="activeFacultyYear"
+                      {...formik.getFieldProps("activeFacultyYear")}
+                    >
+                      <Option value="" disabled hidden>
+                        Choose an Active faculty year
+                      </Option>
+                      <Option value="0">Not a student</Option>
+                      <Option value="1">1st faculty year</Option>
+                      <Option value="2">2nd faculty year</Option>
+                      <Option value="3">3rd faculty year</Option>
+                      <Option value="4">4th faculty year</Option>
+                      <Option value="5">5th faculty year</Option>
+                    </Select>
+                    <ErrorMessage component={"div"} name="activeFacultyYear" />
+                  </FormRow>
+                  <FormRow>
+                    <Button
+                      type="submit"
+                      isOutline
+                      isForm
+                      disabled={formik.isSubmitting}
+                    >
+                      {formik.isSubmitting ? "Processing..." : "Register"}
+                    </Button>
+                  </FormRow>
+                </Form>
+              </FormWrapper>
             )}
           </Formik>
         </Section>
