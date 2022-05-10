@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import { breakpoints, colors, fonts } from "./theme";
+import {
+  Form as FormFormik,
+  Field as FieldFormik,
+  ErrorMessage as ErrorMessageFormik,
+} from "formik";
+import { css } from "styled-components";
 
 export const Grid = styled.div`
   display: grid;
@@ -66,6 +72,118 @@ export const Button = styled.button`
     `
      border: 1px solid ${colors.primary};
   `}
+
+  ${(props) =>
+    props.isForm &&
+    `
+    display: block;
+    margin: 0 auto;
+    width: 220px
+  `}
 `;
 
 export const Main = styled.main``;
+
+export const Form = styled(FormFormik)`
+  @media (${breakpoints.tabletSmall}) {
+    width: 400px;
+
+    ${(props) =>
+      props.isCentered &&
+      `
+       margin: 0 auto;
+  `}
+  }
+`;
+
+export const FormRow = styled.div`
+  margin-bottom: 32px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  ${(props) =>
+    props.isVisible &&
+    `
+    display: none;
+  `}
+`;
+
+const FieldStyle = css`
+  border: 1px solid ${colors.textSecondary};
+  border-radius: 6px;
+  width: 100%;
+  line-height: 50px;
+  height: 50px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 14px;
+  font-family: ${fonts.primary};
+
+  &:focus {
+    border-color: ${colors.textPrimary};
+  }
+
+  @media (${breakpoints.desktop}) {
+    font-size: 16px;
+  }
+`;
+export const Field = styled(FieldFormik)`
+  ${FieldStyle}
+`;
+
+export const Select = styled.select`
+  ${FieldStyle}
+`;
+
+export const Option = styled.option``;
+
+export const ErrorMessage = styled(ErrorMessageFormik)`
+  font-size: 14px;
+  color: ${colors.primary};
+  padding-top: 8px;
+`;
+
+export const PasswordFormWrapper = styled.div`
+  border-radius: 8px;
+  padding: 24px;
+  background-color: #f0f0f0;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  height: 135px;
+
+  ${(props) =>
+    !props.isForm &&
+    `
+    width: 450px;
+    height: 100%;
+  `}
+
+  @media (${breakpoints.desktop}) {
+    width: 450px;
+  }
+`;
+
+export const PasswordTitle = styled.h2`
+  font-size: 16px;
+  color: ${colors.textPrimary};
+  margin-bottom: 32px;
+  word-spacing: 2px;
+`;
+
+export const PasswordMessage = styled.p`
+  font-size: 16px;
+  color: ${colors.textSecondary};
+  word-spacing: 2px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+
+  @media (${breakpoints.tablet}) {
+    flex-wrap: nowrap;
+  }
+`;

@@ -31,10 +31,11 @@ const Header = ({ isSecondary }) => {
         />
         <Nav>
           <HeaderNavLink to="/courses">Courses</HeaderNavLink>
-          <ButtonLink to="/">
+          <HeaderNavLink to="/profile">Profile</HeaderNavLink>
+          <ButtonLink to="/sign-in">
             <Button isNav={true}>Sign in</Button>
           </ButtonLink>
-          <ButtonLink to="/">
+          <ButtonLink to="/register">
             <Button isSecondary={true} isNav={true}>
               Register
             </Button>

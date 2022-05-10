@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { breakpoints, colors } from "../../lib/style/theme";
+import { css } from "styled-components";
 
 export const Section = styled.section`
   padding: 60px 24px;
@@ -44,7 +45,7 @@ export const SectionHeading = styled.div`
   }
 `;
 
-export const SectionTitle = styled.h2`
+const TitleStyle = css`
   color: ${colors.textPrimary};
   font-size: 26px;
   font-weight: 500;
@@ -58,6 +59,25 @@ export const SectionTitle = styled.h2`
   @media (${breakpoints.desktop}) {
     font-size: 36px;
   }
+`;
+
+export const SectionTitleH1 = styled.h1`
+  ${TitleStyle}
+  ${(props) =>
+    props.isCentered &&
+    `
+    text-align: center;
+    width: 100%;
+  `}
+`;
+export const SectionTitleH2 = styled.h2`
+  ${TitleStyle}
+  ${(props) =>
+    props.isCentered &&
+    `
+    text-align: center;
+    width: 100%;
+  `}
 `;
 
 export const SectionLink = styled(Link)``;

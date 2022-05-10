@@ -5,8 +5,9 @@ const SideNav = ({ open, isSecondary }) => {
   return (
     <SideNavList open={open} isSecondary={isSecondary}>
       <SideNavLink to="/courses">Courses</SideNavLink>
-      <SideNavLink to="/">Sign in</SideNavLink>
-      <SideNavLink to="/">Register</SideNavLink>
+      <SideNavLink to="/profile">Profile</SideNavLink>
+      <SideNavLink to="/sign-in">Sign in</SideNavLink>
+      <SideNavLink to="/register">Register</SideNavLink>
     </SideNavList>
   );
 };

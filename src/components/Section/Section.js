@@ -6,7 +6,8 @@ import {
   SectionHeading,
   SectionInner,
   SectionLink,
-  SectionTitle,
+  SectionTitleH1,
+  SectionTitleH2,
   Section as SectionWrapper,
 } from "./SectionStyle";
 import SearchBar from "../SearchBar/SearchBar";
@@ -21,6 +22,10 @@ const Section = ({
   search,
   loading,
   onValueChange,
+  isMainSection = false,
+  isCentered = false,
+  toggleEdit,
+  isDisabled,
 }) => {
   const navigate = useNavigate();
 
@@ -30,7 +35,12 @@ const Section = ({
         {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
           <SectionHeading>
-            {title && <SectionTitle>{title}</SectionTitle>}
+            {title &&
+              (isMainSection ? (
+                <SectionTitleH1 isCentered={isCentered}>{title}</SectionTitleH1>
+              ) : (
+                <SectionTitleH2 isCentered={isCentered}>{title}</SectionTitleH2>
+              ))}
             {search && (
               <SearchBar
                 placeholder="Search courses"
@@ -52,6 +62,11 @@ const Section = ({
                 onClick={() => navigate(-1)}
               >
                 {buttonText}
+              </Button>
+            )}
+            {buttonText === "Edit" && (
+              <Button isHeading={true} isOutline={true} onClick={toggleEdit}>
+                {isDisabled ? buttonText : "Cancel"}
               </Button>
             )}
           </SectionHeading>

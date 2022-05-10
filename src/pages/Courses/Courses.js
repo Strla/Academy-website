@@ -41,6 +41,7 @@ const Courses = () => {
           search={true}
           loading={isLoaded}
           onValueChange={handleSearch}
+          isMainSection={true}
         >
           {courses.length > 0 ? (
             <Grid>
