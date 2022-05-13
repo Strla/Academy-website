@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
 import {
@@ -10,10 +10,14 @@ import {
   ErrorMessage,
   Button,
   FormWrapper,
+  FormSuccessMessage,
 } from "../../lib/style/generalStyles";
 import * as Yup from "yup";
+import { getAllUsers, loginUser } from "../../api/users";
 
 const SignIn = () => {
+  const [successMessage, setSuccessMessage] = useState(null);
+
   return (
     <>
       <Header isSecondary={true} />
@@ -33,20 +37,49 @@ const SignIn = () => {
                 .min(8, "Password must be at least 8 characters long!")
                 .required("Password is required!"),
             })}
-            onSubmit={(values, actions) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
+            onSubmit={async (values, actions) => {
+              try {
+                const res = await loginUser(values);
+                const users = await getAllUsers(res.access_token);
+                const user = users.find((user) => user.email === values.email);
+
+                localStorage.setItem("accessToken", res.access_token);
+
                 actions.setSubmitting(false);
                 actions.resetForm({
                   email: "",
                   password: "",
                 });
-              }, 1000);
+
+                setSuccessMessage({
+                  error: false,
+                  message: `Hi ${
+                    user.first_name + " " + user.last_name
+                  }, login was successful!`,
+                });
+
+                setTimeout(() => {
+                  setSuccessMessage(null);
+                }, 3000);
+              } catch (error) {
+                setSuccessMessage({
+                  error: true,
+                  message: "Error occured, try again or contact us!",
+                });
+                actions.setSubmitting(false);
+              }
             }}
           >
             {(formik) => (
               <FormWrapper>
                 <Form>
+                  {successMessage && (
+                    <FormRow>
+                      <FormSuccessMessage isError={successMessage.error}>
+                        {successMessage.message}
+                      </FormSuccessMessage>
+                    </FormRow>
+                  )}
                   <FormRow>
                     <Field
                       type="email"
